@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+        <path id="path1" d="M 100 200, Q 200 100 300 200, T 500 200" stroke="orange" fill="none"></path>
+        <text id="text" style="font-size:20px;">
+            <textPath xlink:href="#path1">
+                <tspan>这个文字先</tspan>
+                <tspan fill="green" dy="-30">上去</tspan>
+                <tspan dy="30">又</tspan>
+                <tspan fill="red" dy="30">下来</tspan>
+                <tspan dy="-30">了。</tspan>
+            </textPath>
+        </text>
+    </svg>
+</body>
+</html>

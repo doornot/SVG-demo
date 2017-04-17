@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
+    <path id="path1" d="M 100 200, Q 200 100 300 200, T 500 200" stroke="orange" fill="none"></path>
+    <text style="font-size:20px;">
+        <textPath xlink:href="#path1">We go up, then we go down, then up again! hahaha~~~</textPath>
+    </text>
+</svg>

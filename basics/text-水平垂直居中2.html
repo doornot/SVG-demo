@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平垂直居中</title>
+</head>
+<body>
+    dominant-baseline: 
+    <select id="select">
+        <option value="top">top</option>
+        <option value="middle">middle</option>
+        <option value="bottom">bottom</option>
+    </select><br><br><br>
+    <svg>
+        <path stroke="orange" d="M 0 100.5, h 500, M 140 0, v 200"></path>
+        <text id="text" x="140" y="100" fill="red" font-size="20">ABCDE</text>
+        <rect id="rect" stroke="green" fill="none"></rect>
+    </svg>
+</body>
+<script>
+    var oSelect = document.getElementById('select');
+    var oText = document.getElementById('text');
+    var oRect = document.getElementById('rect');
+    oSelect.addEventListener('input', function(e) {
+        oText.setAttribute('dy', 0);
+        oText.setAttribute('dy', getAlimentDy(oSelect.value));
+        var box = oText.getBBox();
+        console.log(box);
+        oRect.setAttribute('x', box.x);
+        oRect.setAttribute('y', box.y);
+        oRect.setAttribute('width', box.width);
+        oRect.setAttribute('height', box.height);
+    });
+    function getAlimentDy(val) {
+        var box = oText.getBBox();
+        var y = +oText.getAttribute('y');
+        switch(val) {
+            case 'top': return y - box.y;
+            case 'middle': return y - (box.y + box.height/2);
+            case 'bottom': return y - (box.y + box.height);
+            default: return 0;
+        }
+    }
+</script>
+</html>

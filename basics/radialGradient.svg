@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="grad2" cx="0.5" cy="0.5" fx="0.8" fy="0.2" r="0.5">
+            <stop offset="0" stop-color="#1497fc"></stop>
+            <stop offset="0.5" stop-color="#a469be"></stop>
+            <stop offset="1" stop-color="#ff8c00"></stop>
+        </radialGradient>
+    </defs>
+    <rect x="50" y="50" fill="url(#grad2)" width="200" height="150"></rect>
+</svg>

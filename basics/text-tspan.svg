@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+        <pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path stroke="#cdcdcd" fill="none" d="M 0 0, H 20, V 20"></path>
+        </pattern>
+    </defs>
+    <path d="M 100 0, V 200, M 0 100, H 200" stroke="red"></path>
+    <rect width="100%" height="100%" fill="url(#grid)"></rect>
+    <text x="100" y="100" style="font-size:20px">
+        <tspan fill="orange" dy="-20 10">ABC</tspan>
+        <tspan stroke="red" stroke-width="2" fill="orange" dy="-20 20">DEF</tspan>
+    </text>
+    <text x="120" y="120" dy="20 20 20 20 20 20 20" style="font-size:20px">
+        HIJKLMN
+    </text>
+</svg>

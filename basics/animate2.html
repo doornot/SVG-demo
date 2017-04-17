@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>svg-animate</title>
+    <style>
+        html,body,svg{
+            padding:0;
+            margin:0;
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+    <svg>
+        <rect x="100" y="100" width="100" height="100" fill="orange">
+            <animate
+                id="goRight"
+                attributeType="XML"
+                attributeName="x"
+                begin="0;goLeft.end + 1s"
+                from="100"
+                to="500"
+                dur="2s"
+                fill="freeze">
+            </animate>
+            <animate
+                id="goLeft"
+                attributeType="XML"
+                attributeName="x"
+                begin="goRight.end + 1s"
+                from="500"
+                to="100"
+                dur="2s"
+                fill="freeze">
+            </animate>
+        </rect>
+    </svg>
+</body>
+</html>

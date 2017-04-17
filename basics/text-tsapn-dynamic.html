@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>svg-text-dynamic</title>
+    <style>
+        html,body{height:100%;}
+        *{padding:0;margin:0;}
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <defs>
+            <pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path stroke="#cdcdcd" fill="none" d="M 0 0, H 20, V 20"></path>
+            </pattern>
+        </defs>
+        <path d="M 100 0, V 200, M 0 100, H 200" stroke="red" transform="translate(0 80)"></path>
+        <rect width="100%" height="100%" fill="url(#grid)"></rect>
+        <text id="text" x="100" y="100" transform="translate(0 80)"></text>
+    </svg>
+</body>
+<script>
+    var text = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var n = text.length; // 26个英文字母的长度
+    var x = []; // dx数组
+    var y = null; // dy数组
+    var a = 100; // sin函数振幅
+    var w = 0.02; // sin函数w
+    var t = 0; // sin函数t
+    var NS = 'http://www.w3.org/2000/svg';
+    var oText = document.getElementById('text');
+    for (var i = 0; i < n; i++) {
+        x.push(10);
+        var oTspan = document.createElementNS(NS,'tspan');
+        oTspan.textContent = text[i];
+        oText.appendChild(oTspan);
+        var h = Math.round(360/26*i);
+        oTspan.setAttribute('fill','hsl(' + h + ', 100%, 80%)');
+    }
+    function arrange(t) {
+        var cy, ly = 0;
+        y = [];
+        for (var i = 0; i < n; i++) {
+            cy = -a * Math.sin(w * i * 20 + t);
+            y.push(cy-ly);
+            ly = cy;
+        }
+    }
+    function render() {
+        oText.setAttribute('dx', x.join(' '));
+        oText.setAttribute('dy', y.join(' '));
+    }
+    function frame() {
+        t += 0.02;
+        arrange(t);
+        render();
+        requestAnimationFrame(frame);
+    }
+    frame();
+</script>
+</html>

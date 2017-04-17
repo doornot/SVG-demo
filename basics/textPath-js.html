@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    没调通，找不到原因。。。
+    <form>
+        <label>Path:</label>
+        <select id="select">
+            <option value="none">none</option>
+            <option value="#path1">path1</option>
+            <option value="#path2">path2</option>
+            <option value="#path3">path3</option>
+        </select>
+    </form>
+    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+        <path id="path1" d="M 100 200, Q 200 100 300 200, T 500 200" stroke="red" fill="none"></path>
+        <path id="path2" d="M 100 300, l 100 -50 200 100 100 -50" stroke="green" fill="none"></path>
+        <path id="path3" d="M 100 400, A 400 300 0 0 0 500 400" stroke="blue" fill="none"></path>
+        <text id="text" x="100" y="100" style="font-size:20px;">
+            Text path scripting 动态使用路径文本
+        </text>
+    </svg>
+</body>
+<script>
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    var XLINK_NS = 'http://www.w3.org/1999/xlink';
+    var oSelect = document.getElementById('select');
+    var oText = document.getElementById('text');
+    oSelect.addEventListener('input', function(e) {
+        var value = oSelect.value;
+        if (oText.firstChild.tagName && oText.firstChild.tagName.toLowerCase() == 'textpath') {
+            if (value == 'none') {
+                removeTextPath();
+            } else {
+                removeTextPath();
+                addTextPath();
+                setTextPath(value);
+            }
+        } else {
+            addTextPath();
+            setTextPath(value);
+        }
+    });
+    function addTextPath(path) {
+        var textPath = document.createElementNS(SVG_NS, 'textPath');
+        textPath.appendChild(oText.firstChild);
+        oText.appendChild(textPath);
+    }
+    function setTextPath(path) {
+        var textPath = oText.firstChild;
+        textPath.setAttributeNS('XLINK_NS', 'xlink:href', path);
+        var pathElement = document.querySelector(path);
+    }
+    function removeTextPath() {
+        var textPath = oText.firstChild;
+        while(textPath.firstChild){
+            oText.appendChild(textPath.firstChild);
+        }
+        text.removeChild(textPath);
+    }
+</script>
+</html>

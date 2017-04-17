@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body,svg{
+            padding:0;
+            margin:0;
+            width:100%;
+            height:100%;
+        }
+        #ctrl{
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="ctrl">
+        <label>x</label>
+        <input type="range" ctrl="x" value="0" min="0" max="360">
+        <label>y</label>
+        <input type="range" ctrl="y" value="0" min="0" max="200">
+        <label>text-anchor</label>
+        <select ctrl="text-anchor">
+            <option value="start" selected>start</option>
+            <option value="middle">middle</option>
+            <option value="end">end</option>
+        </select>
+        <label>startOffset</label>
+        <input type="range" ctrl="startOffset" value="0" min="0" max="100">
+        <button type="reset">reset</button>
+    </form>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
+        <path id="path1" d="M 100 200, Q 200 100 300 200, T 500 200" stroke="orange" fill="none"></path>
+        <text id="text" style="font-size:20px;">
+            <textPath xlink:href="#path1">ABCDEF</textPath>
+        </text>
+    </svg>
+</body>
+<script>
+    var oText = document.getElementById('text');
+    var oCtrl = document.getElementById('ctrl');
+    function update(target) {
+        var attr = target.getAttribute('ctrl');
+        if (!attr) return; 
+        if (attr == 'startOffset') {
+            oText.setAttribute(attr, target.value + '%');
+        } else {
+            oText.setAttribute(attr, target.value);
+        }
+    }
+    oCtrl.addEventListener('input', function(e) {
+        // console.log(e.target);
+        update(e.target);
+    });
+    oCtrl.addEventListener('reset', function() {
+        setTimeout(function(){
+            var lists = document.querySelectorAll('#ctrl *[ctrl]');
+            console.log(lists);
+            [].slice.call(lists).forEach(update);
+        },0);
+    });
+</script>
+</html>
