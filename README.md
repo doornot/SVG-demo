@@ -34,6 +34,7 @@
 * 上一个命令结束的位置就是下一个命令开始的位置。
 * 命令可以重复参数表示重复执行同一条命令。
 2. 各种path命令
+![path-commands.png](path-commands.png)
 
 ## chap5、SVG文本
 
