@@ -51,9 +51,11 @@
 1. SMIL for SVG
 * 动画标签：\<animate>、\<animateTransform>、\<animateMotion>
 * 动画元素、属性定位以及动画参数设置：attributeName、attributeType、from、to、dur、repeatCount、fill、calcMode
-* SMIL for SVG 定位动画目标
+* SMIL for SVG 定位动画目标  
 Internal Rasource Identifier 定位：例如 \<animate xlink:href="#rect1">\</animate>  
 被包含在目标元素里：\<rect> \<animate>\</animate> \</rect>  
 * SMIL for SVG 轨迹移动
 
-> svg官方查阅文档：[https://www.w3.org/TR/SVG/](https://www.w3.org/TR/SVG/ "SVG")
+> refer to  
+慕课网 - "走进svg"视频学习  
+svg官方查阅文档：[https://www.w3.org/TR/SVG/](https://www.w3.org/TR/SVG/ "SVG")  
