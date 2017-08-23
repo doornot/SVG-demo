@@ -58,5 +58,5 @@ Internal Rasource Identifier 定位：例如 \<animate xlink:href="#rect1">\</an
 
 > refer to  
 
-慕课网 - "走进svg"视频学习  
-svg官方查阅文档：[https://www.w3.org/TR/SVG/](https://www.w3.org/TR/SVG/ "SVG")  
+1. 慕课网 - "走进svg"视频学习  
+2. svg官方查阅文档：[https://www.w3.org/TR/SVG/](https://www.w3.org/TR/SVG/ "SVG")  
