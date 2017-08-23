@@ -24,7 +24,7 @@
 2. 线性渐变和径向渐变
 * 线性渐变：\<linearGradient>、\<stop>、gradientUnits
 * 径向渐变：\<radialGradient>、\<stop>、gradientUnits
-3. 笔刷
+3. 笔刷  
 绘制纹理、\<pattern>标签、patternUnits(objectBoundingBox|userSpaceOnUse)、patternContentUnits(objectBoundingBox|userSpaceOnUse)
 
 ## chap4、Path
